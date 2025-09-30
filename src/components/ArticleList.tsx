@@ -39,7 +39,8 @@ const ArticleList = () => {
   const [hasMore, setHasMore] = useState(true);
   const [savedArticles, setSavedArticles] = useState<string[]>([]);
   
-  const category = searchParams.get('category') || 'all';
+  // Safely get category from searchParams
+  const category = searchParams?.get('category') || 'all';
   const itemsPerPage = 6;
 
   // Load saved articles from localStorage

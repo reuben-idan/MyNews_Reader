@@ -114,62 +114,63 @@ const StockTicker = () => {
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
-      <div className="p-6
-      <div className="flex justify-between items-center mb-4">
-        <h3 className="text-lg font-semibold text-gray-800 dark:text-white">Market Overview</h3>
-        <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
-          <FiDollarSign className="w-4 h-4 mr-1" />
-          <span>Live</span>
+      <div className="p-6">
+        <div className="flex justify-between items-center mb-4">
+          <h3 className="text-lg font-semibold text-gray-800 dark:text-white">Market Overview</h3>
+          <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
+            <FiDollarSign className="w-4 h-4 mr-1" />
+            <span>Live</span>
+          </div>
         </div>
-      </div>
-      
-      <div className="relative h-10 overflow-hidden">
-        <div 
-          ref={tickerRef}
-          className="absolute whitespace-nowrap flex items-center"
-          style={{ transform: `translateX(-${position}px)` }}
-        >
-          {duplicatedStocks.map((stock, index) => (
-            <div 
-              key={`${stock.symbol}-${index}`} 
-              className="inline-flex items-center mr-8 px-3 py-1.5 bg-gray-50 dark:bg-gray-700/50 rounded-lg"
-            >
-              <span className="font-medium text-gray-900 dark:text-white mr-2">{stock.symbol}</span>
-              <span className="text-sm text-gray-500 dark:text-gray-400 mr-3">{stock.price.toFixed(2)}</span>
-              <div className={`flex items-center text-sm font-medium ${
-                stock.change >= 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'
-              }`}>
-                {stock.change >= 0 ? (
-                  <FiTrendingUp className="w-4 h-4 mr-1" />
-                ) : (
-                  <FiTrendingDown className="w-4 h-4 mr-1" />
-                )}
-                <span>
-                  {stock.change >= 0 ? '+' : ''}{stock.change.toFixed(2)} ({stock.changePercent.toFixed(2)}%)
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-      
-      <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-        <div className="grid grid-cols-2 gap-4">
-          {stocks.slice(0, 4).map((stock) => (
-            <div key={stock.symbol} className="flex flex-col">
-              <div className="flex justify-between items-center">
-                <span className="text-sm font-medium text-gray-500 dark:text-gray-400">{stock.symbol}</span>
-                <span className={`text-sm font-medium ${
+        
+        <div className="relative h-10 overflow-hidden">
+          <div 
+            ref={tickerRef}
+            className="absolute whitespace-nowrap flex items-center"
+            style={{ transform: `translateX(-${position}px)` }}
+          >
+            {duplicatedStocks.map((stock, index) => (
+              <div 
+                key={`${stock.symbol}-${index}`} 
+                className="inline-flex items-center mr-8 px-3 py-1.5 bg-gray-50 dark:bg-gray-700/50 rounded-lg"
+              >
+                <span className="font-medium text-gray-900 dark:text-white mr-2">{stock.symbol}</span>
+                <span className="text-sm text-gray-500 dark:text-gray-400 mr-3">{stock.price.toFixed(2)}</span>
+                <div className={`flex items-center text-sm font-medium ${
                   stock.change >= 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'
                 }`}>
-                  {stock.change >= 0 ? '+' : ''}{stock.change.toFixed(2)}%
+                  {stock.change >= 0 ? (
+                    <FiTrendingUp className="w-4 h-4 mr-1" />
+                  ) : (
+                    <FiTrendingDown className="w-4 h-4 mr-1" />
+                  )}
+                  <span>
+                    {stock.change >= 0 ? '+' : ''}{stock.change.toFixed(2)} ({stock.changePercent.toFixed(2)}%)
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
+          <div className="grid grid-cols-2 gap-4">
+            {stocks.slice(0, 4).map((stock) => (
+              <div key={stock.symbol} className="flex flex-col">
+                <div className="flex justify-between items-center">
+                  <span className="text-sm font-medium text-gray-500 dark:text-gray-400">{stock.symbol}</span>
+                  <span className={`text-sm font-medium ${
+                    stock.change >= 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'
+                  }`}>
+                    {stock.change >= 0 ? '+' : ''}{stock.change.toFixed(2)}%
+                  </span>
+                </div>
+                <span className="text-lg font-semibold text-gray-900 dark:text-white">
+                  {stock.price.toFixed(2)}
                 </span>
               </div>
-              <span className="text-lg font-semibold text-gray-900 dark:text-white">
-                {stock.price.toFixed(2)}
-              </span>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>

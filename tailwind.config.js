@@ -28,6 +28,7 @@ module.exports = {
         },
       },
       fontFamily: {
+        merriweather: ['Merriweather', 'serif'],
         sans: ['Inter', 'sans-serif'],
         serif: ['Merriweather', 'serif'],
       },

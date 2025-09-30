@@ -2,15 +2,20 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useTheme } from '@/context/ThemeContext';
+import { usePathname } from 'next/navigation';
 import { FiSun, FiMoon, FiMenu, FiX, FiSearch } from 'react-icons/fi';
+import { useTheme } from '@/context/ThemeContext';
 
-const Navbar = () => {
+const ClientNavbar = () => {
   const { theme, toggleTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
+  // Ensure component is mounted before accessing browser APIs
   useEffect(() => {
+    setMounted(true);
+    
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
@@ -25,6 +30,22 @@ const Navbar = () => {
     { name: 'Saved', href: '/saved' },
     { name: 'About', href: '/about' },
   ];
+
+  if (!mounted) {
+    // Return a simple navbar without theme toggling during SSR
+    return (
+      <header className="fixed w-full z-50 bg-white dark:bg-gray-900 shadow-sm">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex justify-between items-center">
+            <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
+              NewsFlow
+            </Link>
+            <div className="h-8 w-8 rounded-full bg-gray-200 dark:bg-gray-700 animate-pulse"></div>
+          </div>
+        </div>
+      </header>
+    );
+  }
 
   return (
     <header 
@@ -111,4 +132,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default ClientNavbar;

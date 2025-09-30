@@ -1,0 +1,41 @@
+{
+  "name": "NewsFlow - Stay Informed",
+  "short_name": "NewsFlow",
+  "description": "A modern news reader application with personalized content",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["news", "productivity", "utilities"],
+  "orientation": "portrait",
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "shortcuts": [
+    {
+      "name": "Latest News",
+      "short_name": "News",
+      "description": "View the latest news",
+      "url": "/?source=pwa",
+      "icons": [{ "src": "/icon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Saved Articles",
+      "short_name": "Saved",
+      "description": "View your saved articles",
+      "url": "/saved?source=pwa"
+    }
+  ]
+}

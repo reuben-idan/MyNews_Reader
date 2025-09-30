@@ -45,13 +45,15 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
   };
 
-  // Prevent theme flickering on initial load
-  if (!mounted) {
-    return <div className="invisible">{children}</div>;
-  }
+  // Always render the provider, but only apply theme changes when mounted
+  // This prevents hydration mismatches between server and client
+  const contextValue = {
+    theme: mounted ? theme : 'light', // Default to 'light' during SSR
+    toggleTheme: mounted ? toggleTheme : () => {}
+  };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={contextValue}>
       {children}
     </ThemeContext.Provider>
   );

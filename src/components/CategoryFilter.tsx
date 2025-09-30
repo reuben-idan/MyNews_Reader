@@ -19,10 +19,11 @@ const CategoryFilter = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const currentCategory = searchParams.get('category') || 'all';
+  const currentCategory = searchParams?.get('category') || 'all';
 
   const handleCategoryChange = (categoryId: string) => {
-    const params = new URLSearchParams(searchParams.toString());
+    // Create a new URLSearchParams object with the current search params
+    const params = new URLSearchParams(searchParams?.toString() || '');
     
     if (categoryId === 'all') {
       params.delete('category');
@@ -33,6 +34,7 @@ const CategoryFilter = () => {
     // Reset to first page when changing categories
     params.delete('page');
     
+    // Update the URL with the new search params
     router.push(`/?${params.toString()}`, { scroll: false });
     setIsMobileMenuOpen(false);
   };
