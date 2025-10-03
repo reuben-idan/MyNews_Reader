@@ -355,15 +355,47 @@ export const fetchTopHeadlines = async (): Promise<NewsApiResponse> => {
   }
 };
 
+// Helper function to find article by various identifiers
+function findArticleByIdentifier(identifier: string): Article | null {
+  // Check if it's a numeric ID
+  const numericId = parseInt(identifier);
+  if (!isNaN(numericId) && numericId > 0 && numericId <= mockNewsResponse.articles.length) {
+    return mockNewsResponse.articles[numericId - 1];
+  }
+
+  // Check if it's a base64 encoded URL
+  try {
+    const decodedUrl = atob(identifier);
+    if (decodedUrl.startsWith('http://') || decodedUrl.startsWith('https://')) {
+      const article = mockNewsResponse.articles.find(
+        article => article.url === decodedUrl
+      );
+      if (article) return article;
+    }
+  } catch (e) {
+    // Not a valid base64 string
+  }
+
+  // Check if it's a direct URL
+  if (identifier.startsWith('http://') || identifier.startsWith('https://')) {
+    const article = mockNewsResponse.articles.find(
+      article => article.url === identifier
+    );
+    if (article) return article;
+  }
+
+  return null;
+}
+
+// Helper function to generate base64 encoded URLs for articles
+export const generateArticleUrl = (article: Article): string => {
+  return btoa(article.url);
+};
+
 export const getArticleById = async (id: string): Promise<Article | null> => {
   try {
-    // In a real app, you would make an API call to get a specific article
-    // For now, we'll find the article by ID in our mock data
-    const numericId = parseInt(id);
-    if (numericId > 0 && numericId <= mockNewsResponse.articles.length) {
-      return mockNewsResponse.articles[numericId - 1];
-    }
-    return null;
+    // Use the helper function to find articles by various identifiers
+    return findArticleByIdentifier(id);
   } catch (error) {
     console.error('Error fetching article:', error);
     throw error;

@@ -1,5 +1,3 @@
-'use client';
-
 import { useState, useEffect } from 'react';
 import {
   FiShare2,
@@ -10,6 +8,7 @@ import {
   FiCheck,
   FiBookmark
 } from 'react-icons/fi';
+import { generateArticleUrl } from '@/services/newsApi';
 
 interface ArticleActionsProps {
   articleTitle: string;
@@ -30,31 +29,36 @@ export default function ArticleActions({ articleTitle, articleUrl, articleId }: 
 
   // Share functions
   const shareToTwitter = () => {
-    const text = encodeURIComponent(`${articleTitle} - via NewsFlow`);
-    const url = encodeURIComponent(window.location.href);
-    window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank', 'width=550,height=420');
+    const encodedUrl = generateArticleUrl({ url: articleUrl, title: articleTitle, source: { name: '' }, author: '', description: '', publishedAt: '', content: '' } as any);
+    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(articleTitle)}&url=${encodeURIComponent(`${window.location.origin}/article/${encodedUrl}`)}`;
+    window.open(url, '_blank', 'width=600,height=400');
   };
 
   const shareToFacebook = () => {
-    const url = encodeURIComponent(window.location.href);
-    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=600,height=400');
+    const encodedUrl = generateArticleUrl({ url: articleUrl, title: articleTitle, source: { name: '' }, author: '', description: '', publishedAt: '', content: '' } as any);
+    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`${window.location.origin}/article/${encodedUrl}`)}`;
+    window.open(url, '_blank', 'width=600,height=400');
   };
 
   const shareToLinkedIn = () => {
-    const url = encodeURIComponent(window.location.href);
-    const title = encodeURIComponent(articleTitle);
-    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}&title=${title}`, '_blank', 'width=600,height=400');
+    const encodedUrl = generateArticleUrl({ url: articleUrl, title: articleTitle, source: { name: '' }, author: '', description: '', publishedAt: '', content: '' } as any);
+    const url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`${window.location.origin}/article/${encodedUrl}`)}`;
+    window.open(url, '_blank', 'width=600,height=400');
   };
 
   const copyToClipboard = async () => {
+    const encodedUrl = generateArticleUrl({ url: articleUrl, title: articleTitle, source: { name: '' }, author: '', description: '', publishedAt: '', content: '' } as any);
+    const fullUrl = `${window.location.origin}/article/${encodedUrl}`;
+
     try {
-      await navigator.clipboard.writeText(window.location.href);
+      await navigator.clipboard.writeText(fullUrl);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
+      console.error('Failed to copy: ', err);
       // Fallback for older browsers
       const textArea = document.createElement('textarea');
-      textArea.value = window.location.href;
+      textArea.value = fullUrl;
       document.body.appendChild(textArea);
       textArea.select();
       document.execCommand('copy');
@@ -63,7 +67,6 @@ export default function ArticleActions({ articleTitle, articleUrl, articleId }: 
       setTimeout(() => setCopied(false), 2000);
     }
   };
-
   const toggleBookmark = () => {
     const savedArticles = JSON.parse(localStorage.getItem('savedArticles') || '[]');
 
