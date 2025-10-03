@@ -118,7 +118,6 @@ const nextConfig = {
 if (process.env.NODE_ENV === 'development') {
   nextConfig.experimental = {
     ...nextConfig.experimental,
-    reactProductionProfiling: true,
   };
 }
 
