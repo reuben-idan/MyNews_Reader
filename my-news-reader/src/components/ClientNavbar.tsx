@@ -26,6 +26,7 @@ const ClientNavbar = () => {
 
   const navLinks = [
     { name: 'Home', href: '/' },
+    { name: 'Trending', href: '/trending' },
     { name: 'Categories', href: '/categories' },
     { name: 'Saved', href: '/saved' },
     { name: 'About', href: '/about' },
