@@ -62,7 +62,7 @@ You've successfully built **NewsFlow**, a comprehensive Next.js-based news aggre
 
 ## What's Next? – Plan for the Upcoming Week
 
-### 🚀 **Immediate Next Steps (This Week)**
+###  **Immediate Next Steps (This Week)**
 
 **1. Testing & Quality Assurance**
 - [ ] Run comprehensive Lighthouse audits across all pages
