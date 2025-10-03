@@ -1,4 +1,4 @@
-# 🌟 NewsFlow - Your Intelligent News Companion
+#  NewsFlow - Your Intelligent News Companion
 
 <div align="center">
   <img src="https://img.shields.io/badge/Next.js-14.0.0-black" alt="Next.js">
@@ -10,27 +10,27 @@
 </div>
 
 <div align="center">
-  <h3>🚀 A state-of-the-art news platform delivering curated content with precision and intelligence</h3>
+  <h3> A state-of-the-art news platform delivering curated content with precision and intelligence</h3>
 </div>
 
 ---
 
-## 📋 Table of Contents
+##  Table of Contents
 
-- [✨ Overview](#-overview)
-- [🎯 Key Features](#-key-features)
-- [🏗️ Project Structure](#️-project-structure)
-- [🚀 Quick Start](#-quick-start)
-- [📱 Pages & Routes](#-pages--routes)
-- [🎨 Design System](#-design-system)
-- [🔧 Technical Stack](#-technical-stack)
-- [📊 Performance](#-performance)
-- [🤝 Contributing](#-contributing)
-- [📄 License](#-license)
+- [ Overview](#-overview)
+- [ Key Features](#-key-features)
+- [ Project Structure](#️-project-structure)
+- [ Quick Start](#-quick-start)
+- [ Pages & Routes](#-pages--routes)
+- [ Design System](#-design-system)
+- [ Technical Stack](#-technical-stack)
+- [ Performance](#-performance)
+- [ Contributing](#-contributing)
+- [ License](#-license)
 
 ---
 
-## ✨ Overview
+##  Overview
 
 **NewsFlow** is a cutting-edge news aggregation platform built with modern web technologies. It delivers personalized news experiences through intelligent curation, real-time updates, and an intuitive user interface.
 
@@ -38,39 +38,39 @@
   <img src="https://via.placeholder.com/800x400/4F46E5/FFFFFF?text=NewsFlow+Dashboard" alt="NewsFlow Dashboard" width="100%">
 </div>
 
-### 🎯 Mission Statement
+###  Mission Statement
 
 > "To democratize quality information by making credible, curated news accessible to everyone through innovative technology and user-centric design."
 
 ---
 
-## 🎯 Key Features
+##  Key Features
 
-### 🏠 **Homepage**
+###  **Homepage**
 - **Hero Section** with featured articles and breaking news
 - **Multiple News Sections** (Latest, Trending, Popular)
 - **Dynamic Widgets** (Weather, Stock Ticker, Trending Carousel)
 - **Responsive Layout** optimized for all devices
 
-### 🔥 **Trending Page**
+###  **Trending Page**
 - **Real-time Trending Topics** with engagement metrics
 - **Interactive Article Cards** with hover effects
 - **Trending Statistics** and regional breakdowns
 - **Live Update Indicators** and reader engagement data
 
-### 📂 **Categories Page**
+###  **Categories Page**
 - **8 News Categories** with rich metadata and descriptions
 - **Advanced Search & Filtering** system
 - **Category Statistics** dashboard
 - **Interactive Category Cards** with article counts
 
-### 💾 **Saved Articles**
+###  **Saved Articles**
 - **Personal Bookmark Collection** with persistent storage
 - **Real-time Synchronization** across sessions
 - **Category Analysis** of saved content
 - **Export & Management** options
 
-### ℹ️ **About Page**
+###  **About Page**
 - **Company Story & Mission** presentation
 - **Team Member Profiles** with social links
 - **Feature Showcase** highlighting platform capabilities
@@ -78,7 +78,7 @@
 
 ---
 
-## 🏗️ Project Structure
+##  Project Structure
 
 ```
 📦 NewsFlow
@@ -108,7 +108,7 @@
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -146,7 +146,7 @@ npm start
 
 ---
 
-## 📱 Pages & Routes
+##  Pages & Routes
 
 | Route | Description | Status |
 |-------|-------------|--------|
@@ -156,34 +156,34 @@ npm start
 | `/saved` | Personal bookmark collection | ✅ **Live** |
 | `/about` | Company information and team | ✅ **Live** |
 
-### 🔗 Navigation Structure
+###  Navigation Structure
 
 ```
-🏠 Home
+ Home
 ├── Latest News Feed
 ├── Weather Widget
 ├── Stock Market Ticker
 └── Trending Carousel
 
-🔥 Trending
+ Trending
 ├── Real-time Trending Topics
 ├── Engagement Metrics
 ├── Regional Statistics
 └── Live Updates
 
-📂 Categories
+ Categories
 ├── 8 News Categories
 ├── Advanced Filtering
 ├── Category Statistics
 └── Search Functionality
 
-💾 Saved
+ Saved
 ├── Personal Collection
 ├── Bookmark Management
 ├── Category Analysis
 └── Export Options
 
-ℹ️ About
+ About
 ├── Company Story
 ├── Team Profiles
 ├── Feature Showcase
@@ -192,7 +192,7 @@ npm start
 
 ---
 
-## 🎨 Design System
+##  Design System
 
 ### Color Palette
 
@@ -220,7 +220,7 @@ npm start
 
 ---
 
-## 🔧 Technical Stack
+##  Technical Stack
 
 ### Core Technologies
 
@@ -256,7 +256,7 @@ npm start
 
 ---
 
-## 📊 Performance
+##  Performance
 
 ### Build Metrics
 
@@ -267,35 +267,8 @@ npm start
 | **Pages Generated** | 5 static pages | ✅ Efficient |
 | **Build Time** | < 30 seconds | ✅ Fast |
 
-### Lighthouse Scores
 
-<div align="center">
-  <img src="https://via.placeholder.com/400x200/10B981/FFFFFF?text=Lighthouse+Scores%3A+95%2B" alt="Lighthouse Scores" width="60%">
-</div>
 
-- **Performance**: 95+
-- **Accessibility**: 95+
-- **Best Practices**: 95+
-- **SEO**: 95+
-
----
-
-## 🎯 Features Showcase
-
-### 🔥 Trending Page
-<div align="center">
-  <img src="https://via.placeholder.com/600x300/EF4444/FFFFFF?text=Trending+Page+Preview" alt="Trending Page" width="80%">
-</div>
-
-### 📂 Categories Page
-<div align="center">
-  <img src="https://via.placeholder.com/600x300/8B5CF6/FFFFFF?text=Categories+Page+Preview" alt="Categories Page" width="80%">
-</div>
-
-### 💾 Saved Articles
-<div align="center">
-  <img src="https://via.placeholder.com/600x300/EC4899/FFFFFF?text=Saved+Articles+Preview" alt="Saved Articles" width="80%">
-</div>
 
 ---
 
@@ -351,8 +324,8 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ⭐ **Star this repository if you find it helpful!**
 
-📧 **Contact:** [your-email@example.com](mailto:your-email@example.com)
+📧 **Contact:** [reuben.idan@gmail.com]()
 
-🐦 **Twitter:** [@your-handle](https://twitter.com/your-handle)
+🐦 **Twitter:** [@AdroitIdan](https://twitter.com/your-handle)
 
 </div>
