@@ -272,11 +272,11 @@ npm start
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 We welcome contributions from the community! Here's how you can help:
 
-### 🚀 Getting Started
+###  Getting Started
 
 1. **Fork** the repository
 2. **Clone** your fork locally
@@ -285,7 +285,7 @@ We welcome contributions from the community! Here's how you can help:
 5. **Test** thoroughly
 6. **Submit** a pull request
 
-### 📋 Guidelines
+###  Guidelines
 
 - Follow the existing code style and conventions
 - Write clear, descriptive commit messages
@@ -293,7 +293,7 @@ We welcome contributions from the community! Here's how you can help:
 - Update documentation as needed
 - Ensure responsive design works across devices
 
-### 🐛 Reporting Issues
+###  Reporting Issues
 
 - Use the GitHub issue tracker
 - Include detailed reproduction steps
@@ -302,13 +302,13 @@ We welcome contributions from the community! Here's how you can help:
 
 ---
 
-## 📄 License
+##  License
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - **NewsAPI** for providing news data
 - **OpenWeatherMap** for weather information
@@ -322,10 +322,10 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 **Built with ❤️ by [Reuben Idan](https://github.com/reuben-idan)**
 
-⭐ **Star this repository if you find it helpful!**
+ **Star this repository if you find it helpful!**
 
-📧 **Contact:** [reuben.idan@gmail.com]()
+ **Contact:** [reuben.idan@gmail.com]()
 
-🐦 **Twitter:** [@AdroitIdan](https://twitter.com/your-handle)
+ **Twitter:** [@AdroitIdan](https://twitter.com/your-handle)
 
 </div>
