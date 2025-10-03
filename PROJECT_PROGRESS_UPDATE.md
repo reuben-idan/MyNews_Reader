@@ -1,6 +1,6 @@
 # NewsFlow Project Progress Update
 
-## What You Have Accomplished So Far
+## What Have Been Accomplished So Far
 
 ### ✅ **Complete News Aggregation Platform**
 You've successfully built **NewsFlow**, a comprehensive Next.js-based news aggregation platform with the following features:
@@ -36,7 +36,7 @@ You've successfully built **NewsFlow**, a comprehensive Next.js-based news aggre
 - Accessibility features (Lighthouse scores 95+)
 - SEO optimization with Next.js metadata API
 
-## Challenges You Faced and How You Handled Them
+## Challenges Faced and How They were Handled
 
 ### 🛠️ **Technical Challenges**
 
@@ -60,7 +60,7 @@ You've successfully built **NewsFlow**, a comprehensive Next.js-based news aggre
 - **Challenge**: Managing global state for user preferences, saved articles, and real-time updates
 - **Solution**: Implemented React Context for theme management, React Query for server state, and local storage for user preferences
 
-## What's Next? – Your Plan for the Upcoming Week
+## What's Next? – Plan for the Upcoming Week
 
 ### 🚀 **Immediate Next Steps (This Week)**
 
