@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { format } from 'date-fns';
 import { getArticleById, fetchTopHeadlines } from '@/services/newsApi';
 import { Article } from '@/types';
 import { FiClock, FiUser, FiArrowLeft, FiHeart, FiMessageCircle, FiEye } from 'react-icons/fi';

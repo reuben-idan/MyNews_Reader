@@ -3,7 +3,16 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { format } from 'date-fns';
+// Helper function to format dates
+const formatDate = (date: Date, format: string) => {
+  if (format === 'MMM dd') {
+    return date.toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
+    });
+  }
+  return date.toLocaleDateString();
+};
 import { FiClock, FiUser, FiExternalLink, FiBookmark } from 'react-icons/fi';
 import { Article, Category } from '@/types';
 import { generateArticleUrl } from '@/services/newsApi';
@@ -254,7 +263,7 @@ export default function CategoryArticles({ category, search, sortBy }: CategoryA
                 {article.source.name}
               </span>
               <time className="text-xs text-gray-500">
-                {format(new Date(article.publishedAt), 'MMM dd')}
+                {formatDate(new Date(article.publishedAt), 'MMM dd')}
               </time>
             </div>
 

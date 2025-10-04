@@ -4,7 +4,18 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { FiBookmark, FiClock, FiShare2, FiExternalLink } from 'react-icons/fi';
-import { formatDistanceToNow } from 'date-fns';
+// Helper function to format relative time
+const formatDistanceToNow = (date: Date) => {
+  const now = new Date();
+  const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+
+  if (diffInSeconds < 60) return 'just now';
+  if (diffInSeconds < 3600) return `${Math.floor(diffInSeconds / 60)}m ago`;
+  if (diffInSeconds < 86400) return `${Math.floor(diffInSeconds / 3600)}h ago`;
+  if (diffInSeconds < 604800) return `${Math.floor(diffInSeconds / 86400)}d ago`;
+
+  return date.toLocaleDateString();
+};
 
 // Mock data - replace with actual API call
 const mockArticles = [
@@ -154,7 +165,7 @@ const ArticleList = () => {
 
   // Format date
   const formatDate = (dateString: string) => {
-    return formatDistanceToNow(new Date(dateString), { addSuffix: true });
+    return formatDistanceToNow(new Date(dateString));
   };
 
   if (loading) {

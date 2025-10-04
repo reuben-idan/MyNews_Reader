@@ -2,7 +2,32 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { format } from 'date-fns';
+// Helper function to format dates
+const formatDate = (date: Date, format: string) => {
+  if (format === 'MMMM dd, yyyy • h:mm a') {
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }) + ' • ' + date.toLocaleTimeString('en-US', {
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true
+    });
+  } else if (format === 'PPP') {
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+  } else if (format === 'MMM dd') {
+    return date.toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
+    });
+  }
+  return date.toLocaleDateString();
+};
 import { Article } from '@/types';
 import { FiClock, FiUser, FiArrowLeft, FiHeart, FiMessageCircle, FiEye } from 'react-icons/fi';
 import ArticleActions from '@/components/ArticleActions';
@@ -94,7 +119,7 @@ export default function ArticlePageClient({
                 </div>
               )}
               <time className="text-sm">
-                {format(new Date(article.publishedAt), 'MMMM dd, yyyy • h:mm a')}
+                {formatDate(new Date(article.publishedAt), 'MMMM dd, yyyy • h:mm a')}
               </time>
             </div>
 
@@ -174,7 +199,7 @@ export default function ArticlePageClient({
               </div>
               <div className="flex items-center">
                 <FiEye className="w-4 h-4 mr-2 text-purple-600" />
-                <span><strong>Published:</strong> {format(new Date(article.publishedAt), 'PPP')}</span>
+                <span><strong>Published:</strong> {formatDate(new Date(article.publishedAt), 'PPP')}</span>
               </div>
             </div>
           </div>
@@ -185,7 +210,7 @@ export default function ArticlePageClient({
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             <div className="text-sm text-gray-600">
               <p className="font-medium">Published by {article.source.name}</p>
-              <p>Article ID: {params.id} • Published on {format(new Date(article.publishedAt), 'PPP')}</p>
+              <p>Article ID: {params.id} • Published on {formatDate(new Date(article.publishedAt), 'PPP')}</p>
             </div>
             <div className="flex items-center space-x-4">
               <button className="text-sm text-blue-600 hover:text-blue-800 font-medium">
@@ -237,7 +262,7 @@ export default function ArticlePageClient({
                           {relatedArticle.source.name}
                         </span>
                         <time className="text-xs text-gray-500">
-                          {format(new Date(relatedArticle.publishedAt), 'MMM dd')}
+                          {formatDate(new Date(relatedArticle.publishedAt), 'MMM dd')}
                         </time>
                       </div>
                       <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2 mb-2">
