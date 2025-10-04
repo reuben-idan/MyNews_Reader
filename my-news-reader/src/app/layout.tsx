@@ -8,7 +8,6 @@ type Viewport = {
   themeColor: Array<{ media: string; color: string }>;
 };
 import { Inter } from 'next/font/google';
-import { SpeedInsights } from '@vercel/speed-insights/react';
 import { Analytics } from '@vercel/analytics/react';
 import '@/styles/globals.css';
 import '@/styles/fonts.css';
@@ -124,7 +123,6 @@ export default function RootLayout({
             </main>
             <Footer />
           </div>
-          <SpeedInsights />
           <Analytics />
         </Providers>
       </body>
