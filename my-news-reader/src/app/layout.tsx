@@ -9,6 +9,7 @@ type Viewport = {
 };
 import { Inter } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
+import { Toaster } from 'react-hot-toast';
 import '@/styles/globals.css';
 import '@/styles/fonts.css';
 import { Providers } from './providers';
@@ -123,6 +124,26 @@ export default function RootLayout({
             </main>
             <Footer />
           </div>
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              duration: 4000,
+              style: {
+                background: '#363636',
+                color: '#fff',
+              },
+              success: {
+                style: {
+                  background: '#10B981',
+                },
+              },
+              error: {
+                style: {
+                  background: '#EF4444',
+                },
+              },
+            }}
+          />
           <Analytics />
         </Providers>
       </body>

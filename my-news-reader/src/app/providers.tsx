@@ -2,6 +2,7 @@
 
 import { ThemeProvider } from '@/context/ThemeContext';
 import { NewsProvider } from '@/context/NewsContext';
+import { AuthProvider } from '@/context/AuthContext';
 import { useEffect, useState } from 'react';
 
 export function Providers({ children }: { children: React.ReactNode }) {
@@ -15,9 +16,11 @@ export function Providers({ children }: { children: React.ReactNode }) {
   // This ensures both theme and news contexts are always available
   return (
     <ThemeProvider>
-      <NewsProvider>
-        {children}
-      </NewsProvider>
+      <AuthProvider>
+        <NewsProvider>
+          {children}
+        </NewsProvider>
+      </AuthProvider>
     </ThemeProvider>
   );
 }

@@ -142,6 +142,7 @@ export default function ArticlePageClient({
               articleTitle={article.title}
               articleUrl={article.url}
               articleId={params.id}
+              article={article}
             />
           </div>
         </header>

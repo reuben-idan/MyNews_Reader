@@ -3,14 +3,16 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FiBookmark, FiClock, FiShare2, FiTrash2, FiExternalLink } from 'react-icons/fi';
+import { FiBookmark, FiClock, FiShare2, FiTrash2, FiExternalLink, FiLock } from 'react-icons/fi';
 import { useNews } from '@/context/NewsContext';
+import { useAuth } from '@/context/AuthContext';
 import type { Article } from '@/types';
 
 const SavedGrid = () => {
   const [savedArticles, setSavedArticles] = useState<Article[]>([]);
   const [loading, setLoading] = useState(true);
   const { bookmarks, toggleBookmark, isBookmarked } = useNews();
+  const { isAuthenticated, user } = useAuth();
 
   useEffect(() => {
     // Simulate loading bookmarks
@@ -40,6 +42,39 @@ const SavedGrid = () => {
     e.stopPropagation();
     toggleBookmark(article);
   };
+
+  // Show login prompt for non-authenticated users
+  if (!isAuthenticated) {
+    return (
+      <div className="text-center py-16">
+        <div className="max-w-md mx-auto">
+          <div className="w-24 h-24 mx-auto mb-6 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center">
+            <FiLock className="w-12 h-12 text-blue-600 dark:text-blue-400" />
+          </div>
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
+            Sign in to view saved articles
+          </h3>
+          <p className="text-gray-600 dark:text-gray-400 mb-6">
+            Create an account to save articles for later and access them from any device.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link
+              href="/login"
+              className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+            >
+              Sign In
+            </Link>
+            <Link
+              href="/register"
+              className="inline-flex items-center px-6 py-3 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg transition-colors"
+            >
+              Create Account
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (loading) {
     return (
