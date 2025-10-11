@@ -29,6 +29,9 @@ const StockTicker = () => {
   const [position, setPosition] = useState(0);
 
   useEffect(() => {
+    // Only run on client side to prevent build issues
+    if (typeof window === 'undefined') return;
+
     // In a real app, fetch stock data from an API like Finnhub or Yahoo Finance
     const fetchStockData = async () => {
       try {
@@ -45,35 +48,36 @@ const StockTicker = () => {
     };
 
     fetchStockData();
-    
-    // Set up auto-refresh every 5 minutes
+
+    // Set up auto-refresh every 5 minutes - only in browser
     const intervalId = setInterval(fetchStockData, 5 * 60 * 1000);
-    
+
     return () => clearInterval(intervalId);
   }, []);
 
   // Auto-scrolling ticker animation
   useEffect(() => {
-    if (!tickerRef.current) return;
-    
+    // Only run animation in browser
+    if (typeof window === 'undefined' || !tickerRef.current) return;
+
     const ticker = tickerRef.current;
     const tickerWidth = ticker.scrollWidth / 2; // Since we duplicate the content
-    
+
     const animate = () => {
       setPosition(prev => {
         const newPosition = (prev + 0.5) % tickerWidth;
         return newPosition;
       });
-      
+
       if (ticker) {
         ticker.style.transform = `translateX(-${position}px)`;
       }
-      
+
       animationRef.current = requestAnimationFrame(animate);
     };
-    
+
     animationRef.current = requestAnimationFrame(animate);
-    
+
     return () => {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);

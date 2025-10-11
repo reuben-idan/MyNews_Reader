@@ -102,15 +102,14 @@ const nextConfig = {
     return config;
   },
 
-  // Enable static exports for static site generation
-  output: 'standalone',
-  
-  // Only enable experimental features that are stable in the current Next.js version
+  // Temporarily disable standalone output for build troubleshooting
+  // output: 'standalone',
+
+  // Simplify experimental features for build troubleshooting
   experimental: {
-    // Enable server actions (stable in recent Next.js versions)
-    serverActions: true,
-    // Enable scroll restoration (stable in recent Next.js versions)
-    scrollRestoration: true,
+    // Disable experimental features that might cause build issues
+    // serverActions: true,
+    // scrollRestoration: true,
   },
 };
 

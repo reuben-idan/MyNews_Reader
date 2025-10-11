@@ -31,6 +31,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // Only access localStorage in browser environment
+    if (typeof window === 'undefined') {
+      setIsLoading(false);
+      return;
+    }
+
     // Check for existing session on mount
     const savedUser = localStorage.getItem('user');
     if (savedUser) {
@@ -67,7 +73,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         };
 
         setUser(newUser);
-        localStorage.setItem('user', JSON.stringify(newUser));
+        // Only save to localStorage in browser
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('user', JSON.stringify(newUser));
+        }
         setIsLoading(false);
         return { success: true };
       } else {
@@ -103,7 +112,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         };
 
         setUser(newUser);
-        localStorage.setItem('user', JSON.stringify(newUser));
+        // Only save to localStorage in browser
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('user', JSON.stringify(newUser));
+        }
         setIsLoading(false);
         return { success: true };
       } else {
@@ -118,7 +130,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem('user');
+    // Only access localStorage in browser
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('user');
+    }
   };
 
   const updatePreferences = (newPreferences: Partial<UserPreferences>) => {
@@ -128,7 +143,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         preferences: { ...user.preferences, ...newPreferences }
       };
       setUser(updatedUser);
-      localStorage.setItem('user', JSON.stringify(updatedUser));
+      // Only save to localStorage in browser
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('user', JSON.stringify(updatedUser));
+      }
     }
   };
 
